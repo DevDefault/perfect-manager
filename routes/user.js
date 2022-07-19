@@ -4,39 +4,37 @@ const User = require('../model/user');
 
 
 router.post('/signup', async(req, res) => {
-    const { user, name, email, password } = req.body
+    try {
 
-    console.log(user, name, email, password)
+        const { user, name, email, password } = req.body
 
-    const register = await User.findOrCreate({
-        where: {
-            user: user
-        },
-        where: {
-            email: email
-        },
-        defaults: {
-            user,
-            name,
-            email,
-            password
+        console.log(user, name, email, password)
+
+        const [row, created] = await User.findOrCreate({
+            where: {
+                user
+            },
+            where: {
+                email
+            },
+            defaults: {
+                user,
+                name,
+                email,
+                password
+            }
+        })
+
+        if (created == true) {
+            res.status(201)
+            res.send('Cadastro concluído com sucesso! 🎉')
+        } else {
+            res.send('Usuário ou e-mail já cadastrado. 😕')
         }
-    })
 
-
-
-    // console.log(register[1])
-
-    if (register[1] == true) {
-        res.status(201)
-        res.send('Ae caraaai agora tu tem uma conta fdp 🎉')
-    } else {
-        res.send('Pourra burrão, bota outro nome ai crlh 🤦‍♂️ ')
+    } catch (error) {
+        console.log(error)
     }
-
-
-    // console.log(register)
-    // res.send(req.body)
 })
 
 router.get('/signup', (req, res) => {
