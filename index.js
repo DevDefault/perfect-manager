@@ -3,16 +3,21 @@ const express = require('express')
 
 const app = express()
 const db = require('./database/db');
-const User = require('./model/register');
+const User = require('./model/user');
+
+app.set('view engine', 'ejs')
+app.set('views', './theme/views')
 
 // ROUTES
 let userRoute = require('./routes/user')
+
+
+app.use('/assets', express.static('theme/assets'));
 
 const port = 3000
 
 app.use(express.json())
 app.use(cors())
-
 app.use('/', userRoute)
 
 app.listen(port, async() => {

@@ -1,0 +1,21 @@
+<%- include('../_header', { style: "register", title: "Registre-se" }); %>
+
+
+    <div class="containder">
+        <div class="card">
+            <h1>Registre-se</h1>
+            <div class="form">
+                <div class="content-form">
+                    <form>
+                        <input type="text" name="user" id="user" placeholder="Usuário">
+                        <input type="text" name="name" id="name" placeholder="Nome">
+                        <input type="email" name="email" id="email" placeholder="E-mail">
+                        <input type="password" name="password" id="password" placeholder="Senha">
+                        <button id="btn-submit">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../_footer', { script: 'register' }); %>

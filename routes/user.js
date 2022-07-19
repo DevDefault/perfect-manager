@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../model/register');
+const User = require('../model/user');
 
 
 router.post('/register', async(req, res) => {
@@ -13,16 +13,13 @@ router.post('/register', async(req, res) => {
             user: user
         },
         where: {
-            name: name
-        },
-        where: {
             email: email
         },
         defaults: {
             user,
             name,
             email,
-            password: password
+            password
         }
     })
 
@@ -32,6 +29,7 @@ router.post('/register', async(req, res) => {
 
     if (register[1] == true) {
         res.send('Ae caraaai agora tu tem uma conta fdp 🎉')
+        res.render('./login/index');
     } else {
         res.send('Pourra burrão, bota outro nome ai crlh 🤦‍♂️ ')
     }
@@ -39,6 +37,11 @@ router.post('/register', async(req, res) => {
 
     // console.log(register)
     // res.send(req.body)
+})
+
+router.get('/register', (req, res) => {
+    res.render('./register/index')
+
 })
 
 router.get('/login', async(req, res) => {
