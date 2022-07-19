@@ -1,0 +1,27 @@
+<%- include('../_header', { style: "signup", title: "Registre-se" }); %>
+
+
+    <div class="container">
+        <div class="card">
+            <div class="img">
+                <img class="logo" src="https://refeicaocoletiva.com.br/wp-content/uploads/2021/02/images.jpg">
+            </div>
+            <div class="form">
+                <h2>Registre-se</h2>
+                <div class="content-form">
+                    <form id="sigupForm" action="/" method="POST">
+                        <input type="text" name="user" id="user" placeholder="Usuário" minlength="4" required>
+                        <input type="text" name="name" id="name" placeholder="Nome" minlength="3" required>
+                        <input type="email" name="email" id="email" placeholder="E-mail" required>
+                        <input type="password" name="password" id="password" placeholder="Senha" minlength="8" required>
+                        <button type="submit" id="btn-submit">Registrar</button>
+                    </form>
+                </div>
+                <div class="footer">
+                    <a href="/">Já tenho uma conta →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../_footer', { script: 'signup' }); %>

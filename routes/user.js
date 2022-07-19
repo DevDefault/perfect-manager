@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../model/user');
 
 
-router.post('/register', async(req, res) => {
+router.post('/signup', async(req, res) => {
     const { user, name, email, password } = req.body
 
     console.log(user, name, email, password)
@@ -28,8 +28,8 @@ router.post('/register', async(req, res) => {
     // console.log(register[1])
 
     if (register[1] == true) {
+        res.status(201)
         res.send('Ae caraaai agora tu tem uma conta fdp 🎉')
-        res.render('./login/index');
     } else {
         res.send('Pourra burrão, bota outro nome ai crlh 🤦‍♂️ ')
     }
@@ -39,18 +39,19 @@ router.post('/register', async(req, res) => {
     // res.send(req.body)
 })
 
-router.get('/register', (req, res) => {
-    res.render('./register/index')
+router.get('/signup', (req, res) => {
+    res.render('./signup/index')
 
 })
 
-router.get('/login', async(req, res) => {
+router.post('/signin', async(req, res) => {
     const { user, password } = req.body
 
     const login = await User.findAll({ where: { user, password } })
 
     // console.log(login.length)
     if (!login.length) {
+        res.status(401)
         res.send('Tudo errado 🤦‍♂️ ')
     } else {
 
@@ -60,6 +61,11 @@ router.get('/login', async(req, res) => {
 
         res.send('Aeeeeeeee porra! 🥳')
     }
+})
+
+router.get('/', async(req, res) => {
+    res.render('./signin/index')
+
 })
 
 
