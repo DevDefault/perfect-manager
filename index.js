@@ -1,6 +1,9 @@
 const cors = require('cors')
 const express = require('express')
 const bodyParser = require('body-parser')
+    // const jwt = require('jsonwebtoken')
+
+const port = 3000
 
 const app = express()
 const db = require('./database/db');
@@ -11,18 +14,18 @@ app.set('views', './theme/views')
 
 // ROUTES
 let userRoute = require('./routes/user')
-
-
+let dashboardRoute = require('./routes/dashboard')
 
 app.use('/assets', express.static('theme/assets'));
 
-const port = 3000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(express.json())
 app.use(cors())
+
 app.use('/', userRoute)
+app.use('/dashboard', dashboardRoute)
 
 app.listen(port, async() => {
     try {
@@ -31,5 +34,5 @@ app.listen(port, async() => {
     } catch (error) {
         console.log(error);
     }
-    console.log(`Rodando na porta: ${port}`)
+    console.log(` http://localhost:${port}`)
 })
