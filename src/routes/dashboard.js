@@ -13,5 +13,9 @@ router.get('/', (req, res) => {
     res.send('Authentication Failed');
 });
 
+router.get('/products', (req, res) => {
+    res.render('dashboard/products/index')
+})
+
 
 module.exports = router;
