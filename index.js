@@ -10,9 +10,8 @@ const db = require('./src/database/db');
 const User = require('./src/model/user');
 
 
-
 app.set('view engine', 'ejs')
-app.set('views', './src/theme/views')
+app.set('views', './theme/views')
 
 // ROUTES
 let userRoute = require('./src/routes/user')
@@ -24,7 +23,7 @@ app.use(session({
     saveUninitialized: true,
 }))
 
-app.use('/assets', express.static('./src/theme/assets'));
+app.use('/assets', express.static('./theme/assets'));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
