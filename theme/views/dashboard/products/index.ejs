@@ -1,3 +1,18 @@
-<%- include('../../_header', { style: null, title: "Produtos" }); %>
-<h1>Oi</h1>
-<%- include('../../_footer', { script: null }); %>
+<%- include('../../_header', { style: "products", title: "Produtos" }); %>
+    <div class="container">
+        <div class="row">
+            <div class="mt-4">
+                <h4>Produtos</h4>
+            </div>
+
+            <div class="form-floating col-6">
+                <input type="text" class="form-control" placeholder="Pesquisar produto" id="searchProduct">
+                <label for="searchProduct">Buscar produto</label>
+            </div>
+            <div class="col-6 text-end">
+                <button class="btn btn-primary btn-lg"><i class='bx bx-add-to-queue'></i></button>
+            </div>
+
+        </div>
+    </div>
+    <%- include('../../_footer', { script: null }); %>

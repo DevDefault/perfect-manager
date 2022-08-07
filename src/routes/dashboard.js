@@ -9,13 +9,13 @@ router.get('/', (req, res) => {
     if (req.session.login == true) {
         return res.render('dashboard/index')
     }
-    
+
     res.send('Authentication Failed');
 });
 
-router.get('/products', (req, res) => {
-    res.render('dashboard/products/index')
-})
+// router.get('/products', (req, res) => {
+//     res.render('dashboard/products/index')
+// })
 
 
 module.exports = router;

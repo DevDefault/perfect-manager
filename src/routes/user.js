@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../model/user');
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', async(req, res) => {
     try {
 
         const { user, name, email, password } = req.body
@@ -28,10 +28,11 @@ router.post('/signup', async (req, res) => {
         if (created == true) {
             // res.status(201)
             res.json({
-                status: 201,
-                message: "Cadastro concluído com sucesso!"
-            })
-            // res.redirect('signin/index')
+                    status: 201,
+                    message: "Cadastro concluído com sucesso!",
+                    redirect: "/"
+                })
+                // res.redirect('signin/index')
         } else {
             res.json({ message: "Usuário ou e-mail já cadastrado." })
         }
@@ -46,11 +47,11 @@ router.get('/signup', (req, res) => {
 
 });
 
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
     res.render('signin/index')
 });
 
-router.post('/signin', async (req, res) => {
+router.post('/signin', async(req, res) => {
     const { user, password } = req.body
 
     const login = await User.findAll({ where: { user, password } })

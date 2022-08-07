@@ -1,4 +1,3 @@
-
 async function register(e) {
     try {
         e.preventDefault()
@@ -12,6 +11,7 @@ async function register(e) {
         })
 
         if (data.status == 201) {
+            setTimeout(() => { window.location.href = "/" }, 1000)
             Notiflix.Notify.success(data.message, { position: 'center-bottom', timeout: 5000 });
         } else {
             Notiflix.Notify.failure(data.message, { position: 'center-bottom', timeout: 5000 });
