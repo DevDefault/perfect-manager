@@ -1,8 +1,6 @@
-var btnSubmit = $("#btn-submit")
-
 async function login(e) {
     e.preventDefault()
-    // console.log(e)
+        // console.log(e)
     const { user, password } = document.querySelector('form#signinForm')
 
     const { data } = await axios.post("/signin", {

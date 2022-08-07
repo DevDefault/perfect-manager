@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('perfect_manager', 'root', '', {
+const sequelize = new Sequelize('perfect_manager', process.env.DB_USER, '', {
     dialect: 'mysql',
-    host: 'localhost',
-    password: '12345678',
-    port: 3306
+    host: process.env.DB_HOST,
+    password: process.env.DB_PASS,
+    port: process.env.DB_PORT
 });
 
 module.exports = sequelize;

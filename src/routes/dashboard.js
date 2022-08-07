@@ -1,16 +1,9 @@
 const express = require('express');
-// const session = require('express-session')
-
 const router = express.Router();
+const auth = require('./auth')
 
-router.get('/', (req, res) => {
-    console.log(req.session)
-
-    if (req.session.login == true) {
-        return res.render('dashboard/index')
-    }
-
-    res.send('Authentication Failed');
+router.get('/', auth, (req, res) => {
+    res.render('dashboard/index')
 });
 
 // router.get('/products', (req, res) => {

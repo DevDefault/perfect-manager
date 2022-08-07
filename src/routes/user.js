@@ -70,5 +70,12 @@ router.post('/signin', async(req, res) => {
 
 });
 
+router.get('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy();
+        res.render('signin/index')
+    }
+})
+
 
 module.exports = router;

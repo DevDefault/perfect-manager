@@ -8,6 +8,7 @@ require('dotenv').config()
 const app = express()
 const db = require('./src/database/db');
 const User = require('./src/model/user');
+const Product = require('./src/model/product');
 
 
 app.set('view engine', 'ejs')
@@ -16,7 +17,7 @@ app.set('views', './theme/views')
 // ROUTES
 let userRoute = require('./src/routes/user')
 let dashboardRoute = require('./src/routes/dashboard')
-let productRoute = require("./src/routes/product")
+let productRoute = require("./src/routes/products")
 
 app.use(session({
     secret: process.env.SECRET,

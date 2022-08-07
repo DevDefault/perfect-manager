@@ -15,7 +15,16 @@
     --white-color: #F7F6FB;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
-    --z-fixed: 100
+    --z-fixed: 100;
+}
+
+.form-control:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.table {
+    --bs-table-hover-bg: var(--white-color);
 }
 
 *,
@@ -36,6 +45,11 @@ body {
 a {
     text-decoration: none
 }
+
+
+/* .table-hover tr :hover {
+    background-color: var(--white-color);
+} */
 
 .header {
     width: 100%;
@@ -184,7 +198,7 @@ input {
         left: 0;
         padding: 1rem 1rem 0 0
     }
-    .show {
+    .show-nav {
         width: calc(var(--nav-width) + 156px)
     }
     .body-pd {
